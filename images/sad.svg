@@ -1,0 +1,7 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#E3F2FD"/>
+  <path d="M 150 150 Q 150 100 200 100 Q 250 100 250 150 Q 280 150 280 180 Q 280 210 250 210 L 150 210 Q 120 210 120 180 Q 120 150 150 150" fill="#90CAF9"/>
+  <line x1="160" y1="220" x2="150" y2="240" stroke="#64B5F6" stroke-width="3"/>
+  <line x1="200" y1="220" x2="190" y2="240" stroke="#64B5F6" stroke-width="3"/>
+  <line x1="240" y1="220" x2="230" y2="240" stroke="#64B5F6" stroke-width="3"/>
+</svg>

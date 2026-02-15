@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open When... 💌</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Login Overlay -->
+  <div id="login-overlay">
+    <div class="login-card">
+      <h2>Welcome! ✨</h2>
+      <p>Before we begin, tell me a bit about you.</p>
+      <input type="text" id="username" placeholder="Your Name" required>
+      <input type="date" id="user-birthday" required>
+      <button onclick="login()">Enter 🎀</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1 id="main-title">💌 Open When...</h1>
+      <p class="subtitle">A little something for every mood</p>
+    </header>
+
+    <div class="cards-container">
+      <!-- Level 1: Happy -->
+      <div class="card" id="level-1" onclick="flipCard(1)">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="card-content">
+              <span class="icon">😊</span>
+              <h3>Open When You're Happy</h3>
+              <p class="status">Unlocked</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-content">
+              <h3>To My Kutty😉</h3>
+              <p>Seeing you happy makes everything brighter. Keep smiling — you deserve every bit of joy! 💖</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Level 2: Sad -->
+      <div class="card" id="level-2" onclick="flipCard(2)">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="card-content">
+              <span class="icon">😔</span>
+              <h3>Open When You're Sad</h3>
+              <p class="status">Unlocked</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-content">
+              <h3>It's Okay 💗</h3>
+              <p>It's okay to feel this way. Take a deep breath. You are stronger than you think, and you’re never
+                alone. 🤍</p>
+              <button id="audio-controls-btn" class="audio-btn"
+                onclick="event.stopPropagation(); toggleAudio('images/Aud1.mp3')">Listen to Voice
+                Note 🎧</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Level 3: Birthday (Locked) -->
+      <div class="card locked" id="level-3" onclick="flipCard(3)">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="card-content">
+              <span class="icon">🎂</span>
+              <h3>Open On Your Birthday</h3>
+              <p class="status" id="birthday-status">Locked until Feb 21</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-content">
+              <h3>Happy Birthday! 🎉</h3>
+              <p>The day is finally here! Wishing you the most magical birthday. Let's make this year amazing!</p>
+              <div class="btn-group">
+                <button class="gallery-btn" onclick="event.stopPropagation(); openGallery()">📸 Open Photo
+                  Gallery</button>
+                <button class="video-btn" onclick="event.stopPropagation(); openVideo()">🎥 Watch Video</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <button class="reset-btn" onclick="resetApp()">🔄 Reset / Logout</button>
+    </footer>
+  </div>
+
+  <!-- Gallery Modal -->
+  <div id="gallery-modal" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closeModal('gallery-modal')">×</span>
+      <h2 id="gallery-title">Title</h2>
+      <div id="gallery-container" class="gallery-container">
+        <!-- Images injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Modal -->
+  <div id="video-modal" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closeModal('video-modal')">×</span>
+      <h2 id="video-title">Birthday Video 🎥</h2>
+      <div id="video-container">
+        <video id="modal-video" controls width="100%">
+          <source src="" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-controls">
+          <button id="prev-video-btn" onclick="changeVideo(-1)">❮ Prev</button>
+          <button id="next-video-btn" onclick="changeVideo(1)">Next ❯</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full Screen View -->
+  <div id="fullscreen-view" class="hidden" onclick="closeFullScreen()">
+    <span class="close-btn-fs">&times;</span>
+    <img id="fullscreen-img" src="" alt="Full Screen Memory">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
