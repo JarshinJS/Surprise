@@ -28,7 +28,7 @@ const levels = {
 };
 
 const BIRTHDAY_MONTH = 1; // February (0-indexed)
-const BIRTHDAY_DAY = 21;
+const BIRTHDAY_DAY = 15;
 
 // --- Carousel State --- 
 let currentLevelId = null;
@@ -56,7 +56,7 @@ function login() {
   }
 
   // Check if birthday is Feb 21, 2006
-  if (enteredYear !== 2006 || enteredMonth !== 1 || enteredDay !== 21) {
+  if (enteredYear !== 2006 || enteredMonth !== 1 || enteredDay !== 15) {
     alert("That doesn't look like the right special day! 🎂 (Hint: Your birthday date and year)");
     return;
   }
