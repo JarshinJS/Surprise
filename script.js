@@ -9,7 +9,7 @@ const levels = {
     title: "When You're Sad 😔",
     message: "It's okay to feel this way. Take a deep breath. You are stronger than you think, and you’re never alone. 🤍",
     images: ["images/sad.svg"], // Changed to array
-    audio: "images/Aud1.mp3"
+    audio: ""
   },
   3: {
     title: "Happy Birthday! 🎂",
@@ -23,7 +23,7 @@ const levels = {
       "images/img26.jpg", "images/img27.jpg", "images/img28.jpg"
     ],
     video: ["images/vid1.mp4", "images/vid2.mp4"],
-    audio: ""
+    audio: "images/Aud1.mp3"
   }
 };
 
@@ -76,7 +76,7 @@ function checkLogin() {
 }
 
 function personalizeUI(name) {
-  document.getElementById("main-title").innerText = `💌 Open When Kuttyma Needs It`;
+  document.getElementById("main-title").innerHTML = `💌 <span class="gradient-text">Open When Kuttyma Needs It</span>`;
 }
 
 // --- Date & Lock Logic ---
@@ -103,10 +103,52 @@ function updateLockedState() {
     statusText.innerText = "Unlocked!";
     statusText.style.color = "#4CAF50";
     statusText.style.background = "#e8f5e9";
+    // Stop countdown if it's running (though this function usually runs on load)
+    if (window.countdownInterval) clearInterval(window.countdownInterval);
   } else {
     level3Card.classList.add("locked");
-    statusText.innerText = "Locked until Feb 21";
+    startCountdown(statusText);
   }
+}
+
+// --- Countdown Logic ---
+function getNextBirthday() {
+  const today = new Date();
+  let year = today.getFullYear();
+  const birthday = new Date(year, BIRTHDAY_MONTH, BIRTHDAY_DAY); // Month is 0-indexed
+
+  if (today > birthday) {
+    birthday.setFullYear(year + 1);
+  }
+  return birthday;
+}
+
+function startCountdown(element) {
+  if (window.countdownInterval) clearInterval(window.countdownInterval);
+
+  function update() {
+    const now = new Date();
+    const birthday = getNextBirthday();
+    const diff = birthday - now;
+
+    if (diff <= 0) {
+      // It's time!
+      clearInterval(window.countdownInterval);
+      updateLockedState(); // Will unlock the card
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    element.innerText = `Wait for: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    element.style.fontFamily = "monospace"; // Better for ticking numbers
+  }
+
+  update(); // Run immediately
+  window.countdownInterval = setInterval(update, 1000);
 }
 
 // --- Flip Interaction ---
