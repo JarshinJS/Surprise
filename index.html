@@ -3,135 +3,275 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Open When... 💌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>For Rethisha 💖</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- Login Overlay -->
+  <!-- Background Elements -->
+  <div id="floating-shapes"></div>
+  <div class="cursor-trail"></div>
+
+  <!-- Login Overlay (Preserved) -->
   <div id="login-overlay">
-    <div class="login-card">
-      <h2>Welcome! ✨</h2>
-      <p>Before we begin, tell me a bit about you.</p>
+    <div class="login-card bounce-in">
+      <h2>Welcome, Princess ✨</h2>
+      <p>A magical world awaits you...</p>
       <input type="text" id="username" placeholder="Your Name" required>
       <input type="date" id="user-birthday" required>
-      <button onclick="login()">Enter 🎀</button>
+      <button class="pulse-btn" onclick="login()">Open My Heart 🎀</button>
     </div>
   </div>
 
-  <div class="container">
-    <header>
-      <h1 id="main-title">💌 <span class="gradient-text">Open When...</span></h1>
-      <p class="subtitle">A little something for every mood</p>
-    </header>
+  <!-- Birthday Countdown Overlay -->
+  <div id="countdown-overlay" class="hidden">
+    <div class="countdown-content">
+      <h2>The Wait is Almost Over! ⏳</h2>
+      <p>Your surprise unlocks in:</p>
+      <div class="countdown-timer">
+        <div class="time-box">
+          <span id="days">00</span>
+          <small>Days</small>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <small>Hours</small>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <small>Minutes</small>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <small>Seconds</small>
+        </div>
+      </div>
+      <p class="wait-message" style="margin-top: 20px; font-size: 1.2rem;">Patience is a virtue... but cake is better!
+        🎂</p>
+    </div>
+  </div>
 
-    <div class="cards-container">
-      <!-- Level 1: Happy -->
-      <div class="card" id="level-1" onclick="flipCard(1)">
-        <div class="card-inner">
-          <div class="card-front">
-            <div class="card-content">
-              <span class="icon">😊</span>
-              <h3>Open When You're Happy</h3>
-              <p class="status">Unlocked</p>
-            </div>
+  <div class="container hidden" id="main-app">
+
+    <!-- Section 1: Hero -->
+    <section id="hero" class="full-screen">
+      <div class="hero-content">
+        <h1 class="typing-text">Happy Birthday, <br> <span class="highlight">Rethisha</span></h1>
+        <p class="subtitle fade-in-delay">You are the magic in my everyday.</p>
+        <button class="scroll-btn" onclick="scrollToSection('reasons')">Begin Journey ↓</button>
+      </div>
+    </section>
+
+    <!-- Section 2: Why You Are Special -->
+    <section id="reasons" class="section">
+      <h2 class="section-title" data-animate="fade-up">Why You're My Favorite</h2>
+      <div class="carousel-container" data-animate="slide-left">
+        <div class="love-note">
+          <span class="note-icon">✨</span>
+          <h3>Your Smile</h3>
+          <p>It creates sunshine even on the rainiest days.</p>
+        </div>
+        <div class="love-note">
+          <span class="note-icon">🧠</span>
+          <h3>Your Mind</h3>
+          <p>Beautiful, brilliant, and full of wonder.</p>
+        </div>
+        <div class="love-note">
+          <span class="note-icon">🥰</span>
+          <h3>Your Support</h3>
+          <p>You always know exactly how to make me feel better.</p>
+        </div>
+        <div class="love-note">
+          <span class="note-icon">💝</span>
+          <h3>Your Heart</h3>
+          <p>The kindest place I've ever known.</p>
+        </div>
+        <div class="love-note">
+          <span class="note-icon">🤣</span>
+          <h3>Your Laugh</h3>
+          <p>My absolute favorite sound in the world.</p>
+        </div>
+        <div class="love-note">
+          <span class="note-icon">👗</span>
+          <h3>Your Style</h3>
+          <p>Effortlessly cool and always stunning.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Timeline -->
+    <section id="timeline" class="section">
+      <h2 class="section-title" data-animate="fade-up">Our Story So Far</h2>
+      <div class="timeline-container">
+        <div class="timeline-item left" data-animate="fade-right">
+          <div class="content">
+            <h3>The Beginning</h3>
+            <p>Where it all started...</p>
           </div>
-          <div class="card-back">
-            <div class="card-content">
-              <h3>To My Kutty😉</h3>
-              <p>Seeing you happy makes everything brighter. Keep smiling — you deserve every bit of joy! 💖</p>
-            </div>
+        </div>
+        <div class="timeline-item right" data-animate="fade-left">
+          <div class="content">
+            <h3>First Smile</h3>
+            <p>The moment I knew you were special.</p>
+          </div>
+        </div>
+        <div class="timeline-item left" data-animate="fade-right">
+          <div class="content">
+            <h3>Adventures</h3>
+            <p>Every moment with you is an adventure.</p>
+          </div>
+        </div>
+        <div class="timeline-item right" data-animate="fade-left">
+          <div class="content">
+            <h3>Evening Walk</h3>
+            <p>Exploring new places, hand in hand.</p>
+          </div>
+        </div>
+        <div class="timeline-item left" data-animate="fade-right">
+          <div class="content">
+            <h3>Arcus </h3>
+            <p>So many more memories waiting to be made.</p>
+          </div>
+        </div>
+        <div class="timeline-item right" data-animate="fade-left">
+          <div class="content">
+            <h3>Today</h3>
+            <p>Celebrating you, the most amazing person.</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Level 2: Sad -->
-      <div class="card" id="level-2" onclick="flipCard(2)">
-        <div class="card-inner">
-          <div class="card-front">
-            <div class="card-content">
-              <span class="icon">😔</span>
-              <h3>Open When You're Sad</h3>
-              <p class="status">Unlocked</p>
+    <!-- Section 4: Open When (Envelopes) -->
+    <section id="letters" class="section">
+      <h2 class="section-title" data-animate="fade-up">Open When...</h2>
+      <div class="card-grid">
+
+        <!-- Card 1 -->
+        <div class="card-wrapper" onclick="toggleCard(1)" id="card-1">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="stamp">😊</div>
+              <h3>Open When<br>You're Happy</h3>
+              <div class="click-hint">Tap to Flip</div>
+            </div>
+            <div class="card-back">
+              <span class="close-card-btn" onclick="event.stopPropagation(); toggleCard(1)">&times;</span>
+              <h3>To My Joy</h3>
+              <p>Seeing you happy makes everything brighter. Keep smiling — you deserve every bit of joy! 💖</p>
+              <div class="photo-placeholder">📸</div>
+              <p class="small-text">Your beautiful smile belongs here.</p>
             </div>
           </div>
-          <div class="card-back">
-            <div class="card-content">
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-wrapper" onclick="toggleCard(2)" id="card-2">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="stamp">😔</div>
+              <h3>Open When<br>You're Sad</h3>
+              <div class="click-hint">Tap to Flip</div>
+            </div>
+            <div class="card-back">
+              <span class="close-card-btn" onclick="event.stopPropagation(); toggleCard(2)">&times;</span>
               <h3>It's Okay 💗</h3>
               <p>It's okay to feel this way. Take a deep breath. You are stronger than you think, and you’re never
                 alone. 🤍</p>
+              <div class="photo-placeholder">🫂</div>
+              <p class="small-text">Sending you a big virtual hug!</p>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Level 3: Birthday (Locked) -->
-      <div class="card locked" id="level-3" onclick="flipCard(3)">
-        <div class="card-inner">
-          <div class="card-front">
-            <div class="card-content">
-              <span class="icon">🎂</span>
-              <h3>Open On Your Birthday</h3>
-              <p class="status" id="birthday-status">Locked until Feb 21</p>
+        <!-- Card 3 (Birthday) -->
+        <div class="card-wrapper locked" onclick="toggleCard(3)" id="card-3">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="stamp">🎂</div>
+              <h3>Open On<br>Your Birthday</h3>
+              <div class="lock-icon">🔒</div>
+              <div class="click-hint">Tap to Flip</div>
             </div>
-          </div>
-          <div class="card-back">
-            <div class="card-content">
+            <div class="card-back">
+              <span class="close-card-btn" onclick="event.stopPropagation(); toggleCard(3)">&times;</span>
               <h3>Happy Birthday! 🎉</h3>
-              <p>The day is finally here! Wishing you the most magical birthday. Let's make this year amazing!</p>
-              <div class="btn-group">
-                <button class="gallery-btn" onclick="event.stopPropagation(); openGallery()">📸 Open Photo
-                  Gallery</button>
-                <button class="video-btn" onclick="event.stopPropagation(); openVideo()">🎥 Watch Video</button>
-                <button id="audio-controls-btn" class="audio-btn"
-                  onclick="event.stopPropagation(); toggleAudio('images/Aud1.mp3')">Listen to Voice Note 🎧</button>
+              <div class="scrollable-content">
+                <p>The day is finally here! Wishing you the most magical birthday. Let's make this year amazing!</p>
+                <div class="btn-group">
+                  <button class="gallery-btn" onclick="event.stopPropagation(); openGallery()">📸 Memories</button>
+                  <button class="video-btn" onclick="event.stopPropagation(); openVideo()">🎥 Cinema</button>
+                </div>
+                <div class="btn-group">
+                  <button id="audio-controls-btn" class="audio-btn"
+                    onclick="event.stopPropagation(); toggleAudio('images/Aud1.mp3')">🎧 Voice Note</button>
+                </div>
+                <div class="photo-placeholder">🎁</div>
+                <p>May all your wishes come true!</p>
               </div>
             </div>
           </div>
         </div>
+
       </div>
-    </div>
+    </section>
+
+    <!-- Section 5: Interactive Fun -->
+    <section id="fun-zone" class="section">
+      <h2 class="section-title" data-animate="fade-up">Just For Fun</h2>
+      <div class="game-invite" onclick="openGame()" data-animate="pulse">
+        <span class="icon spin">🧩</span>
+        <h3>Play Our Game</h3>
+        <p>Win a special surprise!</p>
+      </div>
+    </section>
 
     <footer>
-    
-      <p style="margin-top: 15px; font-size: 0.9rem; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">By Jarshin J S
-      </p>
+      <p class="footer-text">Forever & Always 💝 Jarshin J S</p>
+      <button onclick="resetApp()" class="reset-link">Reset Journey</button>
     </footer>
   </div>
 
-  <!-- Gallery Modal -->
+  <!-- Hidden Modals (Preserved functionality) -->
   <div id="gallery-modal" class="popup hidden">
-    <div class="popup-content">
+    <div class="popup-content zoom-in">
       <span class="close-btn" onclick="closeModal('gallery-modal')">×</span>
-      <h2 id="gallery-title">Title</h2>
-      <div id="gallery-container" class="gallery-container">
-        <!-- Images injected via JS -->
-      </div>
+      <h2>Memories</h2>
+      <div id="gallery-container" class="gallery-container"></div>
     </div>
   </div>
 
-  <!-- Video Modal -->
   <div id="video-modal" class="popup hidden">
-    <div class="popup-content">
+    <div class="popup-content zoom-in">
       <span class="close-btn" onclick="closeModal('video-modal')">×</span>
-      <h2 id="video-title">Birthday Video 🎥</h2>
+      <h2>Birthday Video 🎥</h2>
       <div id="video-container">
         <video id="modal-video" controls width="100%">
           <source src="" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
         <div class="video-controls">
-          <button id="prev-video-btn" onclick="changeVideo(-1)">❮ Prev</button>
-          <button id="next-video-btn" onclick="changeVideo(1)">Next ❯</button>
+          <button id="prev-video-btn" onclick="changeVideo(-1)">❮</button>
+          <button id="next-video-btn" onclick="changeVideo(1)">❯</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Full Screen View -->
+  <div id="game-modal" class="popup hidden">
+    <div class="popup-content zoom-in game-popup">
+      <span class="close-btn" onclick="closeModal('game-modal')">×</span>
+      <h2>Memory Match 🧩</h2>
+      <p>Find all matching pairs!</p>
+      <div class="game-grid" id="game-grid"></div>
+      <div id="game-message" class="hidden">🎉 You Won! 🎉</div>
+      <button class="retry-btn" onclick="initGame()">Restart Game</button>
+    </div>
+  </div>
+
   <div id="fullscreen-view" class="hidden" onclick="closeFullScreen()">
     <span class="close-btn-fs">&times;</span>
     <img id="fullscreen-img" src="" alt="Full Screen Memory">
